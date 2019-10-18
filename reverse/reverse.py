@@ -44,4 +44,14 @@ class LinkedList:
 
   def reverse_list(self):
     # TO BE COMPLETED
-    pass
+    current = self.head
+    prev = None
+    next = None
+    while current:
+      next = current.next_node
+      current.next_node = prev
+      prev = current
+      current = next
+    self.head = prev
+
+    #Takes the first node, stores the 2nd node and sets next to None (making it the last node.) It then sets prev pointer to the first node and sets the current node to the value we stored. We loop and repeat until current is None (the last node since current is equal to node.next). When the loop is finished we set the head to the value of the prev pointer (the last node).
